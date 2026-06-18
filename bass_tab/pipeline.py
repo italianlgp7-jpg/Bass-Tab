@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 import shutil
 import tempfile
 from pathlib import Path
@@ -10,6 +11,17 @@ from .download import download_audio
 from .separate import isolate_bass, SeparationError
 from .transcribe import transcribe_bass
 from .tab import TUNINGS, render_tab
+
+
+def clean_url(raw: str) -> str:
+    """Pull the real http(s) link out of whatever the user pasted.
+
+    Forgives accidental prefixes/suffixes (e.g. a stray "Error:" or quotes)
+    that sometimes ride along when copy-pasting.
+    """
+    raw = raw.strip().strip('"').strip("'")
+    match = re.search(r"https?://\S+", raw)
+    return match.group(0) if match else raw
 
 
 def generate_tab(
@@ -31,6 +43,8 @@ def generate_tab(
     if strings not in TUNINGS:
         raise ValueError(f"Unsupported string count {strings}; choose from {sorted(TUNINGS)}")
     tuning = TUNINGS[strings]
+
+    url = clean_url(url)
 
     owns_workdir = workdir is None
     work = Path(workdir) if workdir else Path(tempfile.mkdtemp(prefix="basstab_"))
