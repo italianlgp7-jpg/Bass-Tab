@@ -1,6 +1,9 @@
 # Audio download
 yt-dlp>=2024.1.0
 
+# Bundled ffmpeg binary, used automatically if ffmpeg isn't on your PATH.
+imageio-ffmpeg>=0.4.9
+
 # Bass source separation (pulls in torch). Optional at runtime via --no-separate.
 demucs>=4.0.0
 
