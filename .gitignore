@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# Pipeline artifacts
+*.wav
+*.mp3
+*.m4a
+separated/
+basstab_*/
+*.tab
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

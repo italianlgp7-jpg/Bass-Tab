@@ -1,0 +1,10 @@
+# Audio download
+yt-dlp>=2024.1.0
+
+# Bass source separation (pulls in torch). Optional at runtime via --no-separate.
+demucs>=4.0.0
+
+# Pitch detection / transcription
+librosa>=0.10.0
+numpy>=1.23
+soundfile>=0.12.1

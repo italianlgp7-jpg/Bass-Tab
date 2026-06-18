@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bass-tab"
+version = "0.1.0"
+description = "Generate a bass guitar tab from a YouTube link by isolating and transcribing the bass."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "Bass Tab Generator contributors" }]
+keywords = ["bass", "tab", "tablature", "music", "transcription", "youtube"]
+dependencies = [
+    "yt-dlp>=2024.1.0",
+    "demucs>=4.0.0",
+    "librosa>=0.10.0",
+    "numpy>=1.23",
+    "soundfile>=0.12.1",
+]
+
+[project.scripts]
+bass-tab = "bass_tab.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["bass_tab*"]
