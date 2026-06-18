@@ -19,6 +19,9 @@ YouTube URL ──► download ──► isolate bass ──► detect notes ─
 
 ## Install
 
+> 🔰 **New to all this / on Windows?** Follow the click-by-click guide in
+> [SETUP_WINDOWS.md](SETUP_WINDOWS.md) — no coding required.
+
 Requires Python 3.9+ and [`ffmpeg`](https://ffmpeg.org/) on your `PATH`.
 
 ```bash
